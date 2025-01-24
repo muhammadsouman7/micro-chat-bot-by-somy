@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 # Enable CORS
 # CORS(app, resources={r"/*": {"origins": ["https://micro-chat-bot-by-somy.vercel.app"]}})
-CORS(app, resources={r"/*": {"origins": ["http://127.0.0.1:5000"]}})
+CORS(app, resources={r"/*": {"origins": ["https://micro-chat-bot-by-somy.vercel.app"]}})
 
 
 # Handle preflight (OPTIONS) requests for CORS
