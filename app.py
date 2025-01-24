@@ -70,10 +70,16 @@ def signUp():
     if not username or not password:
         return jsonify({"message": "Username and password are required"}), 400
 
+    # Check if the username already exists
+    existing_user = User.query.filter_by(username=username).first()
+    if existing_user:
+        return jsonify({"message": "Username already exists"}), 400
+
+    # Hash the password before saving to the database
     hashedPass = bcrypt.generate_password_hash(password).decode('utf-8')
     
     try:
-        # Add user to the database
+        # Add new user to the database
         new_user = User(username=username, password=hashedPass)
         db.session.add(new_user)
         db.session.commit()
@@ -81,7 +87,7 @@ def signUp():
 
     except Exception as e:
         db.session.rollback()
-        return jsonify({"message": "Username already exists"}), 400
+        return jsonify({"message": "An error occurred while signing up"}), 500
 
 # Opening chat bot
 @app.route('/micro-chat-bot', methods=['GET'])
