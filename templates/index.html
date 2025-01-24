@@ -1,0 +1,72 @@
+{% extends 'base.html' %} {% block head %}Login | Micro ChatBot{% endblock head %} {% block body %}
+<div class="form-container">
+    <form action="" id="signin-form" method="POST" class="signin-form">
+        <h1>
+            SIGN IN
+        </h1>
+        <div class="text-field">
+            <input id="userName" name="username" type="text">
+            <label for="userName" id="userLabel" class="user">Username</label>
+        </div>
+        <div class="text-field" style="margin-top: 15px;">
+            <input id="password" name="password" type="password">
+            <label for="" id="passLabel" class="pass">Password</label>
+            <button type="button" class="eye signin-eye" id="hidePassword">
+                <i class="bi bi-eye-slash"></i>
+            </button>
+            <button type="button" class="eye signin-eye" id="showPassword">
+                <i class="bi bi-eye"></i>
+            </button>
+        </div>
+        <div class="links">
+            <a href="/reset-password" id="forgotPass" class="forgotPass">Forgot Password?</a>
+            <button type="button" id="signUp" class="signup">Sign Up</button>
+            <!-- <a href="#" id="signUp" class="signup">
+                Sign Up
+            </a> -->
+        </div>
+        <div class="submit">
+            <input type="submit" value="Sign In" name="Sign In" id="signInBtn">
+        </div>
+    </form>
+    <form action="" method="POST" id="signup-form" class="signup-form">
+        <h1>
+            SIGN UP
+        </h1>
+        <div class="text-field">
+            <label for="" id="newUserLabel" class="signUp-user">Enter Your Name</label>
+            <input id="newUser" name="newUsername" type="text" required>
+        </div>
+        <div class="text-field" style="margin-top: 15px;">
+            <label for="" id="newPassLabel" class="signUp-pass">Enter Password</label>
+            <input id="newPass" name="newPassword" type="password" required>
+            <button type="button" class="eye signup-eye" id="hideNewPassword">
+                <i class="bi bi-eye-slash"></i>
+            </button>
+            <button type="button" class="eye signup-eye" id="showNewPassword">
+                <i class="bi bi-eye"></i>
+            </button>
+        </div>
+        <div class="text-field" style="margin-top: 3px;">
+            <label for="" id="confirmPassLabel" class="confirm-pass">Confirm Password</label>
+            <input id="confirmPass" name="newConfirmPassword" type="password" required>
+            <button type="button" class="eye confirm-eye" id="hideConfirmPassword">
+                <i class="bi bi-eye-slash"></i>
+            </button>
+            <button type="button" class="eye confirm-eye" id="showConfirmPassword">
+                <i class="bi bi-eye"></i>
+            </button>
+        </div>
+        <div class="links">
+            <a href="/" id="signIn" class="signIn">
+                    Already have an account?
+            </a>
+        </div>
+        <div class="submit">
+            <input type="submit" value="Sign Up" name="Sign Up" id="signUpBtn">
+        </div>
+    </form>
+</div>
+<script src="{{ url_for('static', filename='js/form.js') }}"></script>
+
+{% endblock body %}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}{% block head %} Micro ChatBot {% endblock head %} {% block body %}
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="intro-section">
+            <h1 class="text-center" id="intro">Welcome to Micro ChatBot!</h1>
+            <h2 class="text-center">A project by Somy</h2>
+        </div>
+    </div>
+    <hr style="background-color: #fff; height: 2px; width: 100%; margin-block: 0;">
+    <div class="container-fluid">
+        <div class="container-fluid frame">
+            <div class="chat-frame">
+            </div>
+            <hr style="background-color: #fff; height: 2px; width: 100%; margin-block: 0;">
+
+            <div class="input-container">
+                <textarea name="" id="userInput"></textarea>
+                <div class="btn-container">
+                    <button class="btn" id="btnSend" type="submit"><i class="bi bi-send-fill"></i></button>
+                    <button class="btn" id="btnSpeak" type="button"><i class="bi bi-mic-fill"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+<script>
+    const introLabel = document.getElementById("intro")
+    const storedUsername = localStorage.getItem('username');
+    introLabel.innerHTML = "Welcome " + storedUsername + " to Micro ChatBot!"
+</script>
+{% endblock body %}

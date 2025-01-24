@@ -1,0 +1,645 @@
+@font-face {
+    font-family: Poppins;
+    src: url("/static/fonts/Poppins-Regular.ttf");
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.block-container {
+    width: 100%;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background: linear-gradient(to bottom, #333 0%, #333 50%, #02FEEA 100%);
+    background-size: 100% 200%;
+    /* animation-delay: 3s; */
+    animation: neon 5s infinite alternate;
+}
+
+@keyframes neon {
+    0% {
+        background-position: 0% 0%;
+    }
+    100% {
+        background-position: 0% 100%;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 2px;
+    margin: 2px 0;
+}
+
+.col {
+    flex: 1 1 auto;
+    width: 5vw;
+    height: 5vh;
+    background-color: #2f2f2f;
+    /* transition: background-color 0.1s ease-in-out; */
+    transition: box-shadow 0.5s ease-in-out, background-color 0.5s ease-in-out;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0);
+}
+
+.col:hover {
+    /* animation: neon 0.5s forwards; */
+    background-color: #02FEEA;
+    box-shadow: 0 0 20px rgb(2, 254, 234, 0.8);
+}
+
+h1,
+h2 {
+    font-family: Poppins;
+    margin: 0;
+    margin-inline: 10px;
+    text-align: center;
+    color: #02FEEA;
+    margin-block: 5px;
+    text-shadow: 0 0 20px rgb(2, 254, 234, 0.8);
+    transition: ease-in-out 0.5s;
+    animation: glow 1s infinite alternate;
+}
+
+@media (max-width: 768px) {
+    .col {
+        width: 10vw;
+        height: 10vh;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    .frame {
+        height: 70vh;
+    }
+    .userQuery,
+    .botResponse {
+        font-size: 0.7rem;
+        max-width: 47%;
+    }
+    .userQuery {
+        max-width: 40%;
+    }
+    .botResponse {
+        max-width: 60%;
+    }
+    .signin-form h1,
+    .signup-form h1,
+    .reset-pass-form h1 {
+        font-size: 1.3rem;
+    }
+}
+
+@keyframes glow {
+    0% {
+        text-shadow: 0px 0px 10px rgb(2, 254, 234, 0.8);
+    }
+    100% {
+        text-shadow: 0px 0px 30px rgb(2, 254, 234, 0.8);
+    }
+}
+
+.intro-section h1 {
+    font-size: 1.7rem;
+}
+
+.intro-section h2 {
+    font-size: 1.3rem;
+}
+
+.wrapper {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    /* left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    z-index: 1;
+    /* box-shadow: 5px 5px 50px #101010, -5px -5px 50px #101010;
+    border-radius: 10px; */
+    /* bottom: 0; */
+    left: 0;
+}
+
+.container-fluid {
+    padding-inline: 0 !important;
+}
+
+.frame {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 80vh;
+    background-color: rgb(47, 47, 47, 0.7);
+}
+
+@media (min-height: 800px) {
+    /* Styles for screens with a height of 800px or more */
+    .frame {
+        height: 80vh;
+    }
+}
+
+.chat-frame {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+    position: relative;
+    overflow-y: auto;
+    box-sizing: border-box;
+    width: 100%;
+    height: 85%;
+    padding: 10px;
+    scroll-behavior: smooth;
+    scrollbar-width: thin;
+    /* For Firefox */
+    scrollbar-color: #141414 #2f2f2f;
+    /* Thumb and track colors */
+}
+
+
+/* Custom scrollbar styling for WebKit browsers */
+
+.chat-frame::-webkit-scrollbar {
+    width: 1px;
+    /* Set the scrollbar width */
+}
+
+.chat-frame::-webkit-scrollbar-thumb {
+    background-color: #02FEEA;
+    /* Color of the scroll thumb */
+    border-radius: 10px;
+    /* Rounded corners for the scroll thumb */
+}
+
+.chat-frame::-webkit-scrollbar-track {
+    background-color: #2f2f2f;
+    /* Color of the scrollbar track */
+}
+
+.userQuery,
+.botResponse {
+    font-size: 0.9rem;
+    max-width: 47%;
+    padding: 8px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.userQuery {
+    font-family: Poppins;
+    background-color: #02FEEA;
+    background: linear-gradient(90deg, #006159 0%, #02FEEA 100%);
+    border-bottom-right-radius: 0;
+    align-self: flex-end;
+    /* Align user query to the right */
+}
+
+.botResponse {
+    font-family: Poppins;
+    background-color: #b1b1b1;
+    border-bottom-left-radius: 0;
+    align-self: flex-start;
+    border-bottom-left-radius: 0;
+}
+
+.input-container {
+    background-color: #1d1d1d;
+    display: flex;
+    padding: 0;
+    margin-top: 0;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 15%;
+    padding-inline: 10px;
+}
+
+.btn-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    margin-left: 10px;
+}
+
+#btnSend {
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    /* text-align: center; */
+    display: grid;
+    place-items: center;
+    font-size: 0.75rem;
+    background: linear-gradient(90deg, #006159 0%, #02FEEA 100%);
+    color: #fff;
+}
+
+#btnSpeak {
+    padding: 0;
+    height: 37px;
+    width: 37px;
+    border-radius: 50%;
+    font-size: 0.9rem;
+    text-align: center;
+    color: #fff;
+    background: linear-gradient(to left, #006159 0%, #02FEEA 100%);
+}
+
+#btnSend i,
+#btnSpeak i {
+    margin: 0;
+}
+
+#userInput {
+    /* position: absolute;
+    bottom: 0; */
+    width: 90%;
+}
+
+.form-container {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    box-shadow: 5px 5px 50px #101010, -5px -5px 50px #101010;
+    border-radius: 10px;
+    /* background-color: red; */
+}
+
+.form-container.active {
+    perspective: 1000px;
+}
+
+form {
+    background-color: #1d1d1d;
+    padding: 50px;
+    font-weight: 100;
+    border-radius: 10px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 65vh;
+}
+
+.form-container.active form {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    position: relative;
+}
+
+.form-container .signup-form {
+    transform: rotateY(180deg);
+    display: none;
+}
+
+
+/* 
+.signin-form {
+    display: none;
+} */
+
+.form-container.active .signin-form {
+    transform: rotateY(180deg);
+}
+
+.form-container.active .signup-form {
+    transform: rotateY(0deg);
+}
+
+.signin-form h1,
+.signup-form h1,
+.reset-pass-form h1 {
+    font-family: Poppins;
+    margin: 0;
+    text-align: center;
+    color: #02FEEA;
+    margin-bottom: 30px;
+    text-shadow: 0px 0px 10px rgb(2, 254, 234, 0.8);
+    transition: ease-in-out 0.5s;
+    animation: glow 1s infinite alternate;
+}
+
+.text-field {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.text-field input {
+    position: absolute;
+    width: 320px;
+    height: 35px;
+    margin: 5px 10px;
+    background-color: #2f2f2f;
+    color: #fff;
+    border: none;
+    padding-left: 10px;
+    border-radius: 3px;
+}
+
+.text-field label {
+    position: relative;
+    z-index: 1;
+    font-size: 0.8rem;
+    color: #fff;
+    transition: ease-in-out 0.3s;
+}
+
+.signin-form .text-field label.user {
+    top: 0;
+    left: -120px;
+}
+
+.signin-form .text-field label.user.active {
+    top: -20px;
+    left: -125px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.signin-form .text-field label.pass {
+    top: 13px;
+    left: -120px;
+}
+
+.signin-form .text-field label.pass.active {
+    top: -4px;
+    left: -125px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.eye {
+    position: relative;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    cursor: pointer;
+}
+
+.signin-eye {
+    right: -140px;
+    top: -8px;
+}
+
+.signup-eye,
+.reset-pass-eye {
+    /* position: absolute; */
+    z-index: 1;
+    right: -140px;
+    top: -9px;
+}
+
+.confirm-eye {
+    top: -9px;
+    right: -140px;
+}
+
+.eye i {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.signin-form .links,
+.signup-form .links {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+    margin: 5px 10px;
+    padding-inline: 10px;
+}
+
+.signin-form .links a,
+.signup-form .links a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    top: 10px;
+}
+
+.signin-form .links .signup {
+    color: #02FEEA;
+    font-weight: 400;
+    background-color: transparent;
+    border: none;
+}
+
+.signin-form .links .forgotPass {
+    color: #fff;
+    font-weight: 400;
+}
+
+.signin-form .links {
+    justify-content: space-between;
+}
+
+.signin-form .links .signup:hover,
+.signin-form .links .forgotPass:hover {
+    text-decoration: underline;
+}
+
+.signin-form .submit,
+.signup-form .submit,
+.reset-pass-form .submit {
+    display: block;
+    width: 335px;
+}
+
+.signin-form .submit input,
+.signup-form .submit input,
+.reset-pass-form .submit input {
+    width: 100%;
+    height: 30px;
+    margin-top: 10px;
+    color: #1d1d1d;
+    font-weight: bold;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #02FEEA;
+    letter-spacing: 1px;
+    border: none;
+    border-radius: 3px;
+    transition: box-shadow ease-in-out 0.3s, color ease-in-out 0.3s;
+    cursor: pointer;
+}
+
+.signin-form .submit input:hover,
+.signup-form .submit input:hover,
+.reset-pass-form .submit input:hover {
+    /* color: #eaeaea; */
+    box-shadow: 2px 2px 10px rgba(0, 160, 147, 0.6), -2px -2px 10px rgba(0, 160, 147, 0.6);
+}
+
+label.signUp-user {
+    top: 0;
+    left: -105px;
+}
+
+.signup-form .text-field label.signUp-user.active {
+    top: -18px;
+    left: -110px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+label.signUp-pass {
+    top: 10px;
+    left: -105px;
+}
+
+.signup-form .text-field label.signUp-pass.active {
+    top: -4px;
+    left: -115px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+label.confirm-pass {
+    top: 10px;
+    left: -100px;
+}
+
+.signup-form .text-field label.confirm-pass.active {
+    top: -4px;
+    left: -108px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+.signup-form .links {
+    justify-content: end;
+}
+
+.signup-form .links a {
+    color: #02FEEA;
+    font-size: 0.8rem;
+    font-weight: 400;
+}
+
+.signup-form .links a:hover {
+    text-decoration: underline;
+}
+
+label.reset-pass-user {
+    top: 0;
+    left: -105px;
+}
+
+.reset-pass-form .text-field label.reset-pass-user.active {
+    top: -18px;
+    left: -110px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+label.reset-pass {
+    top: 10px;
+    left: -95px;
+}
+
+.reset-pass-form .text-field label.reset-pass.active {
+    top: -4px;
+    left: -100px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+label.reset-confirm-pass {
+    top: 10px;
+    left: -100px;
+}
+
+.reset-pass-form .text-field label.reset-confirm-pass.active {
+    top: -4px;
+    left: -104px;
+    font-size: 0.6rem;
+    background-color: #02FEEA;
+    color: #1d1d1d;
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 5px;
+}
+
+textarea {
+    color: #fff;
+    padding-inline: 10px;
+    padding-block: 7px;
+    border-radius: 10px;
+    resize: none;
+    font-family: Poppins;
+    font-size: 0.8rem;
+    background-color: #414141;
+}
+
+footer {
+    background-color: #1d1d1d;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+    text-align: center;
+    padding: 10px 0;
+}
+
+footer span {
+    color: #ffffff;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+@media (max-width: 768px) {
+    .col {
+        width: 10vw;
+        height: 10vh;
+    }
+}
+
+@media (max-width: 480px) {
+    .col {
+        width: 12.5vw;
+        height: 12.5vh;
+    }
+}
