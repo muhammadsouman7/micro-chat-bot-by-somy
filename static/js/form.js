@@ -120,7 +120,7 @@ signUpBtn.addEventListener("click", async(event) => {
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/sign-up', {
+        const response = await fetch('https://micro-chat-bot-by-somy.vercel.app/api/sign-up', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -132,7 +132,7 @@ signUpBtn.addEventListener("click", async(event) => {
         if (response.ok) {
             alert(data.message); // Success message
             // Redirect to sign-in page after successful signup
-            window.location.href = "http://127.0.0.1:5000"
+            window.location.href = "https://micro-chat-bot-by-somy.vercel.app"
         } else {
             alert(data.message); // Error message
         }
@@ -157,7 +157,7 @@ signInBtn.addEventListener("click", async(event) => {
     };
 
     try {
-        const response = await fetch('http://127.0.0.1:5000/api/login', {
+        const response = await fetch('https://micro-chat-bot-by-somy.vercel.app/api/login', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
